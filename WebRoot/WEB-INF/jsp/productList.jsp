@@ -18,8 +18,9 @@
 					alt=""> 
 			</div>
 		</div>
-		<%@ include file="menu.jsp"%>
+		
 	</div>
+	<%@ include file="menu.jsp"%>
 	<div class="container productList">
 		<div class="span6">
 			<div class="hotProductCategory">
