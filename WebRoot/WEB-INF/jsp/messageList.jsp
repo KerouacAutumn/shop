@@ -44,6 +44,7 @@
 								<td align="center" width="17%">留言日期</td>
 
 							</tr>
+							<jsp:useBean id="pageBean" scope="request" type="javafx.collections.ListChangeListener.Change"/>
 							<c:forEach items="${pageBean.list}" var="message"> 
 								<tr onmouseover="this.style.backgroundColor = 'white'"
 									onmouseout="this.style.backgroundColor = '#F5FAFE';">
@@ -115,7 +116,7 @@
 			</ul>
 		</div>
 		<div class="span24">
-			<div class="copyright">Copyright © 鲜花网 版权所有</div>
+			<div class="copyright">Copyright © 农贸市场管理系统 版权所有</div>
 		</div>
 	</div>
 </body>

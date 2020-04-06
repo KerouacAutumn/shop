@@ -1,0 +1,32 @@
+@charset "utf-8";
+html,body{
+    padding:0px;
+    margin:0px;
+    border:0px;
+}
+#rq{
+    position:relative;
+    top:0px;
+    left:0px;
+    width:950px;
+    height:300px;
+    overflow: hidden;
+
+    background-color: #c33;
+}
+.img{
+    width: 950px;
+    height:300px;
+    overflow:hidden;
+    float:left;
+
+}
+#rq_hid{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:950px;
+    height:300px;
+    overflow: hidden;    
+    transition:left 0.5s linear;
+}

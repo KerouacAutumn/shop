@@ -31,6 +31,7 @@ public class PageBean<T> {
 	public void setList(List<T> list) {
 		this.list = list;
 	}
+	@Override
 	public String toString() {
 		return "PageBean [page=" + page + ", totlePage=" + totlePage
 				+ ", limitPage=" + limitPage + ", list=" + list + "]";

@@ -17,4 +17,5 @@
 	<bean id="categorySecondService" class="com.shop.serviceImpl.CategorySecondServiceImpl"/>
 	<bean id="orderService" class="com.shop.serviceImpl.OrderServiceImpl"/>
 	<bean id="messageService" class="com.shop.serviceImpl.MessageServiceImpl"/>
+	<bean id="commentService" class="com.shop.serviceImpl.CommentServiceImpl"/>
 </beans>
