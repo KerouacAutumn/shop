@@ -3,6 +3,7 @@ package com.shop.serviceImpl;
 import com.shop.Utils.PageBean;
 import com.shop.mapper.CommentMapper;
 import com.shop.po.Comment;
+import com.shop.po.Message;
 import com.shop.service.CommentService;
 import org.springframework.stereotype.Service;
 
@@ -87,5 +88,30 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public boolean deleteById(Integer id) {
         return this.commentDao.deleteById(id) > 0;
+    }
+
+    @Override
+    public PageBean<Comment> findAllCommentByPage(int page,int pid) throws Exception {
+        PageBean<Comment> pageBean = new PageBean<>();
+//		设置这是第几页
+        pageBean.setPage(page);
+//		设置10个
+        int limitPage =4;
+        pageBean.setLimitPage(limitPage);
+//		设置一共多少页
+        int totlePage = 0;
+//		查询一共有多少页
+        totlePage = commentDao.countAllComment();
+        if(Math.ceil(totlePage % limitPage)==0){
+            totlePage=totlePage / limitPage;
+        }else{
+            totlePage=totlePage / limitPage+1;
+        }
+        pageBean.setTotlePage(totlePage);
+        int beginPage= (page-1)*limitPage;
+        //商品集合
+        List<Comment> list = commentDao.findAllCommentByPage(beginPage, limitPage,pid) ;
+        pageBean.setList(list);
+        return pageBean;
     }
 }

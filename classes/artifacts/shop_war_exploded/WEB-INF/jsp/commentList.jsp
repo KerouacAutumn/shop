@@ -21,7 +21,7 @@
           rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div id="comment" name="comment" class="comment">
+<div class="container cart">
     <table>
         <tr>
             <td class="ta_01" align="center" bgColor="#f5fafe">
@@ -37,44 +37,42 @@
                         <td align="center" width="17%">留言日期</td>
 
                     </tr>
-                    <c:forEach items="${commentlist}" var="comment">
+                    <%--							<jsp:useBean id="pageBean" scope="request" type="javafx.collections.ListChangeListener.Change"/>--%>
+                    <c:forEach items="${pageBean.list}" var="comment">
                         <tr onmouseover="this.style.backgroundColor = 'white'"
                             onmouseout="this.style.backgroundColor = '#F5FAFE';">
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
                                 width="18%">${comment.id}</td>
+
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
-                                width="18%">${comment.pid}</td>
-                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
-                                width="10%">${comment.user.username}
+                                width="10%">${comment.pid}
                             </td>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
-                                width="50%"><strong><font color="red">${comment.replycomment}
+                                width="50%"><strong><font color="red">${comment.pid}
                             </font>
                             </strong></td>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
-                                width="30%">${comment.savetime}
+                                width="30%">${comment.pid}
                             </td>
                         </tr>
                     </c:forEach>
-                </table>
-            </td>
+                </table></td>
         </tr>
         <tr align="center">
             <td colspan="7">
                 <div class="pagination">
                     <span>第${pageBean.page}/${pageBean.totlePage}页</span>
                     <c:if test="${pageBean.page!=1}">
-                        <a href="${ pageContext.request.contextPath }/comment.action?page=1"
-                           class="firstPage">&nbsp;</a>
+                        <a href="${ pageContext.request.contextPath }/commentList.action?page=1" class="firstPage">&nbsp;</a>
                         <a
-                                href="${ pageContext.request.contextPath }/comment.action?page=${pageBean.page-1}"
+                                href="${ pageContext.request.contextPath }/commentList.action?page=${pageBean.page-1}"
                                 class="previousPage">&nbsp;</a>
                     </c:if>
                     <c:forEach var="i" begin="1" end="${pageBean.totlePage}">
                         <c:choose>
                             <c:when test="${pageBean.page!=i}">
                                 <a
-                                        href="${pageContext.request.contextPath }/comment.action?page=${i}">
+                                        href="${pageContext.request.contextPath }/commentList.action?page=${i}">
                                         ${i}
                                 </a>
                             </c:when>
@@ -85,9 +83,9 @@
                     </c:forEach>
                     <c:if test="${pageBean.page!=pageBean.totlePage}">
                         <a class="nextPage"
-                           href="${ pageContext.request.contextPath }/comment.action?page=${pageBean.page+1}">&nbsp;</a>
+                           href="${ pageContext.request.contextPath }/commentList.action?page=${pageBean.page+1}">&nbsp;</a>
                         <a class="lastPage"
-                           href="${ pageContext.request.contextPath }/comment.action?page=${pageBean.totlePage}">&nbsp;</a>
+                           href="${ pageContext.request.contextPath }/commentList.action?page=${pageBean.totlePage}">&nbsp;</a>
                     </c:if>
                 </div>
             </td>

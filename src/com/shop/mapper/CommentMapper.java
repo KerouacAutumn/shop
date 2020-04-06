@@ -3,6 +3,7 @@ package com.shop.mapper;
 import com.shop.Utils.PageBean;
 import com.shop.po.Comment;
 import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public interface CommentMapper {
      * 查询指定行数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     PageBean<Comment> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
@@ -62,5 +63,10 @@ public interface CommentMapper {
      * @return 影响行数
      */
     int deleteById(Integer id);
+
+    //全部记录数
+    int countAllComment();
+
+    List<Comment> findAllCommentByPage(int page, int limitPage, int pid);
 
 }

@@ -81,4 +81,15 @@
         delete from shop.comment where id = #{id}
     </delete>
 
+
+    <!-- countAllComment -->
+    <select id="countAllComment" parameterType="int" resultType="int">
+        SELECT count(*) FROM shop.comment
+    </select>
+
+    <select id="findAllCommentByPage" parameterType="int"
+            resultMap="CommentMap">
+        SELECT Comment.* FROM shop.comment  where pid = #{2}
+        order by Comment.id desc  limit #{0},#{1}
+    </select>
 </mapper>

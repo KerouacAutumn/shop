@@ -44,7 +44,7 @@
 								<td align="center" width="17%">留言日期</td>
 
 							</tr>
-							<jsp:useBean id="pageBean" scope="request" type="javafx.collections.ListChangeListener.Change"/>
+<%--							<jsp:useBean id="pageBean" scope="request" type="javafx.collections.ListChangeListener.Change"/>--%>
 							<c:forEach items="${pageBean.list}" var="message"> 
 								<tr onmouseover="this.style.backgroundColor = 'white'"
 									onmouseout="this.style.backgroundColor = '#F5FAFE';">

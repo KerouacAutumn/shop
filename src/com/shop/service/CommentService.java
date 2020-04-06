@@ -53,4 +53,6 @@ public interface CommentService {
      */
     boolean deleteById(Integer id);
 
+    public PageBean<Comment> findAllCommentByPage(int page,int pid) throws Exception;
+
 }
